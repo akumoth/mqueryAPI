@@ -3,7 +3,7 @@ import sqlite3
 from sqlite3 import Error
 import peewee as pw
 
-db = pw.SqliteDatabase("../api/sql.db")
+db = pw.SqliteDatabase("../api/docker-images/app/sql.db")
 my_df = pd.read_parquet('../data/processed/api_db.parquet')
 
 def create_connection(db_file):
@@ -17,7 +17,7 @@ def create_connection(db_file):
         if conn:
             conn.close()
 
-create_connection("../api/sql.db")
+create_connection("../api/docker-images/app/sql.db")
 
 class BaseModel(pw.Model):
     class Meta:
